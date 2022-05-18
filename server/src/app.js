@@ -3,7 +3,7 @@ require('dotenv').config({ path: './config/.env' })
 const cors = require('cors');
 require('../config/database');
 const UserRoutes = require('./routes/User.routes');
-const AuthentificationRoutes = require('./controllers/Authentification.controller');
+const AuthentificationRoutes = require('./routes/Authentification.routes');
 
 const app = express();
 
