@@ -4,10 +4,11 @@ const CommentModel = require('../models/Comment.model');
 
 const CommentController = {
     create: async (req, res) => {
-        const { post, user, message } = req.body;
+        const { user, message } = req.body;
+        const { post_id } = req.params;
 
         try {
-            const PostExist = await PostModel.findOne({ post });
+            const PostExist = await PostModel.findOne({ post_id });
             if (!PostExist) return res.status(404).json({ message: 'Ce post n\'existe pas' });
 
             const UserExist = await UserModel.findOne({ user });
@@ -19,10 +20,11 @@ const CommentController = {
         }
     },
     update: async (req, res) => {
-        const { comment, user, message } = req.body;
+        const { user, message } = req.body;
+        const { comment_id } = req.params;
 
         try {
-            const CommentExist = await CommentModel.findOne({ _id:comment, user });
+            const CommentExist = await CommentModel.findOne({ _id:comment_id, user });
             if (!CommentExist) return res.status(404).json({ message: 'Ce commentaire n\'existe pas' });
 
             res.status(200).json({ message: message });
@@ -31,10 +33,11 @@ const CommentController = {
         }
     },
     delete: async (req, res) => {
-        const { comment, user } = req.body;
+        const { user } = req.body;
+        const { comment_id } = req.params;
 
         try {
-            const CommentExist = await CommentModel.findOne({ _id:comment, user });
+            const CommentExist = await CommentModel.findOne({ _id:comment_id, user });
             if (!CommentExist) return res.status(404).json({ message: 'Ce commentaire n\'existe pas' });
 
             res.status(200).json({ message: 'Commentaire supprimé'})
