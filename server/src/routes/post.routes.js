@@ -10,6 +10,8 @@ router.delete("/:id", postController.deletePost);
 router.patch("/like-post/:id", postController.likePost);
 router.patch("/unlike-post/:id", postController.unlikePost);
 
+// import your route components too
+
 // comments
 // router.patch('/comment-post/:id', postController.commentPost);
 // router.patch('/edit-comment-post/:id', postController.editCommentPost);

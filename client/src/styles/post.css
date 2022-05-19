@@ -1,0 +1,39 @@
+.PostCard {
+    background-color: #52565e;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*font-size: calc(10px + 2vmin);*/
+    /* font-size: 12;
+    color: white; */
+  }
+
+  .PostContent {
+    font-size: 12;
+    color: rgb(0, 0, 0);
+  }
+
+  .PostLeft {
+    align-items: left;
+    justify-content: left;
+    margin-left: 5px;
+  }
+
+  .PostRight {
+    align-items: right;
+    justify-content: right;
+    margin-left: 10px;
+  }
+
+  .PostMessage {
+    background-color: #e3e3e3;
+    min-height: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12;
+    color: rgb(0, 0, 0);
+  }
