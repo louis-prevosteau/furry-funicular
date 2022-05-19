@@ -8,11 +8,12 @@ const CommentController = {
         const { post_id } = req.params;
 
         try {
-            const PostExist = await PostModel.findOne({ post_id });
+            const PostExist = await PostModel.findOne({ _id: post_id });
             if (!PostExist) return res.status(404).json({ message: 'Ce post n\'existe pas' });
 
-            const UserExist = await UserModel.findOne({ user });
+            const UserExist = await UserModel.findOne({ _id: user });
             if (!UserExist) return res.status(404).json({ message: 'Vous devez vous connecter' });
+            await CommentModel.create({ post: post_id, user, message });
 
             res.status(200).json({ message: message });
         } catch (err) {
@@ -21,11 +22,13 @@ const CommentController = {
     },
     update: async (req, res) => {
         const { user, message } = req.body;
-        const { comment_id } = req.params;
+        const { post_id, comment_id } = req.params;
 
         try {
-            const CommentExist = await CommentModel.findOne({ _id:comment_id, user });
+            const CommentExist = await CommentModel.findOne({ _id:comment_id, user, post: post_id });
             if (!CommentExist) return res.status(404).json({ message: 'Ce commentaire n\'existe pas' });
+
+            await CommentModel.findByIdAndUpdate(comment_id, message);
 
             res.status(200).json({ message: message });
         } catch (err) {
@@ -34,11 +37,13 @@ const CommentController = {
     },
     delete: async (req, res) => {
         const { user } = req.body;
-        const { comment_id } = req.params;
+        const { post_id, comment_id } = req.params;
 
         try {
-            const CommentExist = await CommentModel.findOne({ _id:comment_id, user });
+            const CommentExist = await CommentModel.findOne({ _id:comment_id, user,  post: post_id});
             if (!CommentExist) return res.status(404).json({ message: 'Ce commentaire n\'existe pas' });
+
+            await CommentModel.findByIdAndDelete(comment_id);
 
             res.status(200).json({ message: 'Commentaire supprimé'})
         } catch (err) {

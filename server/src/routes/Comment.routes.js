@@ -2,15 +2,15 @@ const router = require('express').Router();
 const postCommentController = require('../controllers/Comment.controller');
 
 router.post(
-    '/comments/create',
+    '/:post_id',
     postCommentController.create
 );
 router.put(
-    '/:comment_id/update',
+    '/:post_id/:comment_id/',
     postCommentController.update
 );
 router.delete(
-    '/:comment_id/delete',
+    '/:post_id/:comment_id',
     postCommentController.delete
 );
 

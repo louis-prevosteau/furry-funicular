@@ -32,6 +32,7 @@ const PostController = {
   deletePost: async (req, res) => {
     const { id } = req.params;
     try {
+      // verify owner post
       await PostModel.findByIdAndDelete(id);
       res.status(200).json({ message : 'post deleted'});
     } catch (error) {
