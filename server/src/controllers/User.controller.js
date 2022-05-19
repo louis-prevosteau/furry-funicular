@@ -1,9 +1,9 @@
-const UserModel = require('../models/User.model');
+const UserService = require('../services/User.service');
 
 const UserController = {
     getUsers: async (req, res) => {
         try {
-            const users = await UserModel.find();
+            const users = await UserService.getUsers();
             res.status(200).json({ users });
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -12,7 +12,7 @@ const UserController = {
     getUser: async (req, res) => {
         const { id } = req.params;
         try {
-            const user = await UserModel.findById(id);
+            const user = await UserService.getUser(id);
             res.status(200).json({ user });
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -22,7 +22,7 @@ const UserController = {
         const { id } = req.params;
         const { bio } = req.body;
         try {
-            const user = await UserModel.findByIdAndUpdate(id, { bio });
+            const user = await UserService.updateUser(id, { bio });
             res.status(200).json({ user });
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -31,7 +31,7 @@ const UserController = {
     deleteUser: async (req, res) => {
         const { id } = req.params;
         try {
-            await UserModel.findByIdAndDelete(id);
+            await UserService.deleteUser(id);
             res.status(200).json({ message: 'user deleted'});
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -41,16 +41,7 @@ const UserController = {
         const { id } = req.params;
         const { follow } = req.body;
         try {
-            await UserModel.findByIdAndUpdate(id, {
-                $push: {
-                    following: follow
-                }
-            });
-            await UserModel.findByIdAndUpdate(follow, {
-                $push: {
-                    followers: id
-                }
-            });
+            await UserService.follow(id, { follow });
             res.status(200).json({ message: 'followed'});
         } catch (error) {
             res.status(500).json({ message: error.message });
@@ -58,18 +49,9 @@ const UserController = {
     },
     unfollow: async (req, res) => {
         const { id } = req.params;
-        const { follow } = req.body;
+        const { unfollow } = req.body;
         try {
-            await UserModel.findByIdAndUpdate(id, {
-                $pull: {
-                    following: follow
-                }
-            });
-            await UserModel.findByIdAndUpdate(follow, {
-                $pull: {
-                    followers: id
-                }
-            });
+            await UserService.unfollow(id, { unfollow })
             res.status(200).json({ message: 'unfollowed'});
         } catch (error) {
             res.status(500).json({ message: error.message });
