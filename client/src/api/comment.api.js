@@ -2,7 +2,7 @@ const { default: RootApi } = require("./index.api");
 
 
 const commentApi = new RootApi('/comment');
-const useComments = () => {
+export const useComments = () => {
     const createComment = async (postId, data) => {
         try {
             const api = commentApi.api()

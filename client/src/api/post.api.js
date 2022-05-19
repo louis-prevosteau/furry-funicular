@@ -2,7 +2,7 @@ const { default: RootApi } = require("./index.api");
 
 
 const postsApi = new RootApi('/post')
-const usePosts = () => {
+export const usePosts = () => {
  const readPosts = async () => {
      try {
         const api = postsApi.api()
