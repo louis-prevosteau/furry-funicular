@@ -12,9 +12,9 @@ const PostController = {
     }
   },
   createPost: async (req, res) => {
-    const { message, picture } = req.body;
+    const { user, message, picture } = req.body;
     try {
-      const post = await PostService.createPost({ message, picture });
+      const post = await PostService.createPost({ user, message, picture });
       res.status(201).json({ post });
     } catch (error) {
       res.status(500).json({ message: error.message });

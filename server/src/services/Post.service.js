@@ -6,8 +6,8 @@ const PostService = {
         return await PostModel.find();
     },
 
-    createPost: async ({ message, picture }) => {
-        return await PostModel.create({ message, picture });
+    createPost: async ({ user, message, picture }) => {
+        return await PostModel.create({ user, message, picture });
     },
 
     updatePost: async (id, { message, picture }) => {
