@@ -36,6 +36,9 @@ const Posts = () => {
 
   return (
     <Fragment>
+      <div className="mediumspacetop"></div>
+      <h1 align="center">Timeline</h1>
+      <div className="mediumspacetop"></div>
       {posts.map((post, index) => (
         <PostCard key={`post-${index}`} post={post} />
       ))}

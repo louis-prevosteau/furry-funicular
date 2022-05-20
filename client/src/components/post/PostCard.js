@@ -11,7 +11,7 @@ const PostCard = ({ post }) => {
 
   //Retour
   return (
-    <div className="mediumspacetop">
+    <div className="PostCard">
       <div align="center" className="PostCard">
         <div className="PostContent">
           <div>
@@ -23,8 +23,12 @@ const PostCard = ({ post }) => {
               id={post._id}
               text="Like"
               data={localStorage.getItem("userId")}
-            />{" "}
-            <PostDelete text="Supprimer" />
+            />
+            <PostDelete
+              text="Supprimer"
+              userId={localStorage.getItem("userId")}
+              posterId={user._id}
+            />
           </h3>
           <div className="PostMessage">
             <p>{message}</p>
