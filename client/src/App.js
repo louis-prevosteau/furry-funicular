@@ -7,6 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+      <span className="page" />
       <Routes>
         <Route path="/" element={<Posts/>} />
         <Route path="login" element={<Login/>} />
