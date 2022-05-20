@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../api/auth.api';
 import '../../styles/components/login.css';
-import './script';
 
 const Login = () => {
     const [pseudo, setPseudo] = useState('');
@@ -11,6 +10,26 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const { login, register } = useAuth()
+
+    useEffect(() => {
+        const signInButton = document.getElementById('signIn');
+        const signUpButton = document.getElementById('signUp');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            const container = document.getElementById('container');
+            container.classList.remove("right-panel-active");
+        });
+
+        return () => {
+            signInButton.removeEventListener('click', () => {})
+            signUpButton.removeEventListener('click', () => {})
+        }
+    }, [])
 
     const handleLogin = () => {
         login(email, password);
@@ -44,15 +63,15 @@ const Login = () => {
                             <input type="email" placeholder="Adresse mail" onChange={(e) => setEmail(e.target.value)}/>
                             <input type="password" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)} />
                             <a href="#">Mot de passe oublié ?</a>
-                            <button>Se conncter</button>
+                            <button>Se connecter</button>
                         </form>
                     </div>
                     <div className="overlay-container">
                         <div className="overlay">
                             <div className="overlay-panel overlay-left">
                                 <h1>De retour ?</h1>
-                                <p> Pour rester connecter avec la communauté</p>
-                                <button className="ghost" id="signIn">Se conncter</button>
+                                <p>Pour rester connecter avec la communauté</p>
+                                <button className="ghost" id="signIn">Se connecter</button>
                             </div>
                             <div className="overlay-panel overlay-right">
                                 <h1>Salut !</h1>

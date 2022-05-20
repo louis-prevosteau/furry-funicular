@@ -1,16 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-/* body {
-    background: #f6f5f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
-    height: 100vh;
-    margin: -20px 0 50px;
-} */
-
 .signIn-signUp {
     display: flex;
     justify-content: center;
@@ -21,12 +10,12 @@
     margin: -20px 0 50px;
 }
 
-h1 {
+.signIn-signUp h1 {
     font-weight: bold;
     margin: 0;
 }
 
-p {
+.signIn-signUp p {
     font-size: 14px;
     font-weight: 100;
     line-height: 20px;
@@ -34,18 +23,18 @@ p {
     margin: 20px 0 30px;
 }
 
-span {
+.signIn-signUp span {
     font-size: 12px;
 }
 
-a {
+.signIn-signUp a {
     color: #333;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
 }
 
-button {
+.signIn-signUp button {
     border-radius: 20px;
     border: 1px solid #FF4B2B;
     background-color: #FF4B2B;
@@ -58,20 +47,20 @@ button {
     transition: transform 80ms ease-in;
 }
 
-button:active {
+.signIn-signUp button:active {
     transform: scale(0.95);
 }
 
-button:focus {
+.signIn-signUp button:focus {
     outline: none;
 }
 
-button.ghost {
+.signIn-signUp button.ghost {
     background-color: transparent;
     border-color: #FFFFFF;
 }
 
-form {
+.signIn-signUp form {
     background-color: #FFFFFF;
     display: flex;
     align-items: center;
@@ -82,7 +71,7 @@ form {
     text-align: center;
 }
 
-input {
+.signIn-signUp input {
     background-color: #eee;
     border: none;
     padding: 12px 15px;
@@ -90,7 +79,7 @@ input {
     width: 100%;
 }
 
-.container {
+.signIn-signUp .container {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
@@ -102,31 +91,31 @@ input {
     min-height: 480px;
 }
 
-.form-container {
+.signIn-signUp .form-container {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.sign-in-container {
+.signIn-signUp .sign-in-container {
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.container.right-panel-active .sign-in-container {
+.signIn-signUp .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
 
-.sign-up-container {
+.signIn-signUp .sign-up-container {
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
 }
 
-.container.right-panel-active .sign-up-container {
+.signIn-signUp .container.right-panel-active .sign-up-container {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
@@ -145,7 +134,7 @@ input {
     }
 }
 
-.overlay-container {
+.signIn-signUp .overlay-container {
     position: absolute;
     top: 0;
     left: 50%;
@@ -156,11 +145,11 @@ input {
     z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.signIn-signUp .container.right-panel-active .overlay-container{
     transform: translateX(-100%);
 }
 
-.overlay {
+.signIn-signUp .overlay {
     background: #FF416C;
     background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
     background: linear-gradient(to right, #FF4B2B, #FF416C);
@@ -176,11 +165,11 @@ input {
     transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.signIn-signUp .container.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
-.overlay-panel {
+.signIn-signUp .overlay-panel {
     position: absolute;
     display: flex;
     align-items: center;
@@ -195,19 +184,19 @@ input {
     transition: transform 0.6s ease-in-out;
 }
 
-.overlay-left {
+.signIn-signUp .overlay-left {
     transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.signIn-signUp .container.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
-.overlay-right {
+.signIn-signUp .overlay-right {
     right: 0;
     transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.signIn-signUp .container.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
