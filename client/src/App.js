@@ -3,13 +3,14 @@ import "./App.css";
 import Posts from "./pages/posts.js";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./components/Auth/Login";
 
 function App() {
-  return <Posts />;
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/post" element={<h1>TEST</h1>} />
+        <Route path="login" element={<Login/>} />
+        <Route path="/post" element={<Posts/>} />
       </Routes>
     </BrowserRouter>
   );
