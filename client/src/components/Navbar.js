@@ -16,7 +16,7 @@ const Navbar = () => {
                     <div className="logo">
                         <NavLink exact to="/">
                             <div className="logo">
-                                <img src="../public/img/icon.png" alt="icon" />
+                                <img src="./img/icon.png" alt="icon" />
                                 <h3>Furry Funicular</h3>
                             </div>
                         </NavLink>
@@ -41,7 +41,7 @@ const Navbar = () => {
                             <li className="welcome">
                                 <NavLink exact to="/profil">
                                     <h5>Bienvenue { getUser }</h5>
-                                    <img src="../public/img/icons/user.svg" alt="user" />
+                                    <img src="./img/icons/user.svg" alt="user" />
                                 </NavLink>
                             </li>
                             <Logout />
@@ -51,7 +51,7 @@ const Navbar = () => {
                             <li></li>
                             <li>
                                 <NavLink exact to="/profil">
-                                    <img src="../public/img/icons/login.svg" alt="login"/>
+                                    <img src="./img/icons/login.svg" alt="login"/>
                                 </NavLink>
                             </li>
                         </ul>

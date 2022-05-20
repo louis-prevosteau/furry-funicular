@@ -1,7 +1,6 @@
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Navbar";
 import Posts from "./pages/posts.js";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Auth/Login";
 
 function App() {
