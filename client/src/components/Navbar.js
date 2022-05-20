@@ -21,20 +21,6 @@ const Navbar = () => {
                             </div>
                         </NavLink>
                     </div>
-                    <div className="home">
-                        <NavLink exact to="/">
-                            <div className="home">
-                                <h5>Accueil</h5>
-                            </div>
-                        </NavLink>
-                    </div>
-                    <div className="home">
-                        <NavLink exact to="/post">
-                            <div className="home">
-                                <h5>Article</h5>
-                            </div>
-                        </NavLink>
-                    </div>
                     {uid ? (
                         <ul>
                             <li></li>
@@ -50,7 +36,7 @@ const Navbar = () => {
                         <ul>
                             <li></li>
                             <li>
-                                <NavLink exact to="/profil">
+                                <NavLink exact to="/login">
                                     <img src="./img/icons/login.svg" alt="login"/>
                                 </NavLink>
                             </li>
