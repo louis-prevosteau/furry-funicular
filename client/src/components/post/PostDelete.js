@@ -1,12 +1,14 @@
 import { Fragment } from "react";
 import "../../styles/post.css";
+import React, { useState, useEffect } from "react";
+import { usePosts } from "../../api/post.api.js";
 
 //Encadré contenant un poste
-const postButton = (props) => {
+const postDelete = (props) => {
   return (
     <Fragment>
       <button
-        className="button1"
+        className="button2"
         name={props.text}
         value={props.text}
         onClick={props.url}
@@ -17,4 +19,4 @@ const postButton = (props) => {
   );
 };
 
-export default postButton;
+export default postDelete;

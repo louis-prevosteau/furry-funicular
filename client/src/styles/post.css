@@ -1,39 +1,125 @@
 .PostCard {
-    background-color: #52565e;
-    min-height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /*font-size: calc(10px + 2vmin);*/
-    /* font-size: 12;
-    color: white; */
-  }
+  
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
 
-  .PostContent {
-    font-size: 12;
-    color: rgb(0, 0, 0);
-  }
+  justify-content: center;
 
-  .PostLeft {
-    align-items: left;
-    justify-content: left;
-    margin-left: 5px;
-  }
+  box-sizing: content-box;
 
-  .PostRight {
-    align-items: right;
-    justify-content: right;
-    margin-left: 10px;
-  }
 
-  .PostMessage {
-    background-color: #e3e3e3;
-    min-height: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 12;
-    color: rgb(0, 0, 0);
-  }
+  /*font-size: calc(10px + 2vmin);*/
+  /* font-size: 12;
+  color: white; */
+}
+
+.PostContent {
+  font-size: 12;
+  color: rgb(0, 0, 0);
+  background-color: #ffe8d9;
+  border-width: 3px;
+  align-items: left;
+  border-color: #f6d767;
+  border-radius: 5px;
+  margin-left:30%;
+  margin-right:30%;
+  margin-bottom: 2% ;
+
+}
+
+.PostTopLine {
+margin-top: 1%;
+margin-bottom: 1% ;
+
+}
+
+
+.PostPicture {
+  margin-left: 30px;
+  margin-top: 30px;
+  margin-right: 30px;
+  
+}
+
+.PostLeft {
+  align-items: left;
+  justify-content: left;
+  
+  margin-left: 30px;
+}
+
+.PostRight {
+  align-items: right;
+  justify-content: right;
+  margin-left: 10px;
+}
+
+.PostMessage {
+
+  min-height: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12;
+  color: rgb(0, 0, 0);
+
+  border-width: 3px;
+  align-items: left;
+  margin-right:5%;
+  margin-left:5%;
+  
+}
+
+/* posts */
+.smallspace {
+margin-bottom: 1% ;
+}
+
+/* posts */
+.mediumspacetop {
+margin-top: 1% ;
+}
+
+.button1 {
+  margin: 5px;
+  background: #ec947e;
+  color: #580300;
+  font-family: "font-3", serif;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 9;
+  border-radius: 10px 3px 10px 10px;
+}
+
+.button1:hover {
+  
+  background: #ff7b77;
+  color: #ffd0c4;
+  
+}
+
+.button2 {
+  margin: 5px;
+  background: #c60000;
+  color: #000000;
+  font-family: "font-3", serif;
+  cursor: pointer;
+  transition: 0.2s;
+  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 9;
+  border-radius: 10px 3px 10px 10px;
+}
+
+.button2:hover {
+ 
+  background: #000000;
+  color: #8c0000;
+  
+}
