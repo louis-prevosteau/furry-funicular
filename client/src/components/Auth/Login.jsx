@@ -5,13 +5,20 @@ import '../../styles/components/login.css';
 import './script';
 
 const Login = () => {
+    const [pseudo, setPseudo] = useState('');
+    const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth()
+    const { login, register } = useAuth()
 
     const handleLogin = () => {
         login(email, password);
+        navigate('/post');
+    };
+
+    const handleRegister = () => {
+        register(pseudo, fullname, email, password);
         navigate('/post');
     };
 
@@ -20,22 +27,22 @@ const Login = () => {
             <div className="signIn-signUp">
                 <div className="container" id="container">
                     <div className="form-container sign-up-container">
-                        <form>
+                        <form onSubmit={handleRegister}>
                             <h1>Créer un compte</h1>
                             <br/>
-                            <input type="text" placeholder="Pseudonyme" />
-                            <input type="text" placeholder="Prénom et nom" />
-                            <input type="email" placeholder="Adresse mail" />
-                            <input type="password" placeholder="Mot de passe" />
+                            <input type="text" placeholder="Pseudonyme" onChange={(e) => setPseudo(e.target.value)} />
+                            <input type="text" placeholder="Prénom et nom" onChange={(e) => setFullname(e.target.value)}/>
+                            <input type="email" placeholder="Adresse mail" onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="password" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)}/>
                             <button>S'inscrire</button>
                         </form>
                     </div>
                     <div className="form-container sign-in-container">
-                        <form>
+                        <form onSubmit={handleLogin}>
                             <h1>Se connecter</h1>
                             <br />
-                            <input type="email" placeholder="Adresse mail"/>
-                            <input type="password" placeholder="Mot de passe" />
+                            <input type="email" placeholder="Adresse mail" onChange={(e) => setEmail(e.target.value)}/>
+                            <input type="password" placeholder="Mot de passe" onChange={(e) => setPassword(e.target.value)} />
                             <a href="#">Mot de passe oublié ?</a>
                             <button>Se conncter</button>
                         </form>
