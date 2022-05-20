@@ -1,8 +1,7 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../api/auth.api';
 import '../../styles/components/login.css';
-import './script';
 
 const Login = () => {
     const [pseudo, setPseudo] = useState('');
@@ -11,6 +10,26 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const { login, register } = useAuth()
+
+    useEffect(() => {
+        const signInButton = document.getElementById('signIn');
+        const signUpButton = document.getElementById('signUp');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            const container = document.getElementById('container');
+            container.classList.remove("right-panel-active");
+        });
+
+        return () => {
+            signInButton.removeEventListener('click', () => {})
+            signUpButton.removeEventListener('click', () => {})
+        }
+    }, [])
 
     const handleLogin = () => {
         login(email, password);
